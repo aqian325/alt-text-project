@@ -1,53 +1,48 @@
-let altTexts;
+let data;
 
 function preload() {
-  altTexts = loadJSON("alttexts.json");
+  // Load your cleaned JSON file
+  data = loadJSON("alttexts_cleaned.json");
 }
 
 function setup() {
   noCanvas();
-  const container = select("#grid");
+  const container = createDiv().id("grid");
 
-  for (let i = 0; i < altTexts.length; i++) {
-    let entry = altTexts[i];
-    let tile = createDiv().addClass("tile");
-    let img = createImg("images/" + entry.filename, entry.alt);
+  for (let i = 0; i < data.length; i++) {
+    const entry = data[i];
+
+        // 🟢 DEBUG HERE: Check what's coming from your JSON
+        console.log("entry:", entry);
+        console.log("filename:", entry.filename);
+        console.log("ALT-TEXT:", entry["ALT-TEXT"]);
+    
+    const tile = createDiv().addClass("tile");
+
+    const img = createImg("img/" + entry.filename, entry["ALT-TEXT"]).addClass("tile-img");
+    const label = createDiv(entry["ALT-TEXT"]).addClass("alt-text");
+
     img.parent(tile);
-    container.child(tile);
+    label.parent(tile);
+    tile.parent(container);
 
-    tile.mousePressed(() => showOverlay.call(tile, entry));
+    tile.mousePressed(() => {
+      showDetail(entry);
+    });
   }
 
-  select("#closeBtn").mousePressed(hideOverlay);
+  select("#closeBtn").mousePressed(() => {
+    select("#detail-panel").removeClass("show");
+  });
 }
 
-function showOverlay(entry) {
-  let tile = this.elt;
-  let rect = tile.getBoundingClientRect();
-
-  let clone = tile.cloneNode(true);
-  clone.classList.add("clone-tile");
-  document.body.appendChild(clone);
-
-  clone.style.left = `${rect.left}px`;
-  clone.style.top = `${rect.top}px`;
-  clone.style.width = `${rect.width}px`;
-  clone.style.height = `${rect.height}px`;
-
-  void clone.offsetWidth;
-
-  clone.style.left = `50%`;
-  clone.style.top = `50%`;
-  clone.style.transform = `translate(-50%, -50%) scale(1.8)`;
-
-  setTimeout(() => {
-    select("#overlayImg").attribute("src", "images/" + entry.filename);
-    select("#overlayText").html(entry.alt);
-    select("#overlay").removeClass("hidden");
-    clone.remove();
-  }, 400);
+function showDetail(entry) {
+  select("#detail-img").attribute("src", "img/" + entry.filename);
+  select("#alt").html(entry["ALT-TEXT"]);
+  select("#caption").html(entry["IMAGE CAPTION"]);
+  select("#description").html(entry["IMAGE DESCRIPTION"]);
+  select("#reflection").html(entry["REFLECTION"]);
+  select("#sources").html(entry["SOURCES"]);
+  select("#detail-panel").addClass("show");
 }
-
-function hideOverlay() {
-  select("#overlay").addClass("hidden");
-}
+console.log(data);
