@@ -1,13 +1,22 @@
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: Avenir, sans-serif;
   background: #fafafa;
+  padding: 40px;
+
+}
+h2 {
+  font-size:32px;
+}
+
+p {
+  font-size:16px;
 }
 
 #grid {
   column-count: 4; /* Number of columns (adjust for screen size) */
   column-gap: 20px;
-  padding: 40px;
+  /* padding: 40px; */
 }
 
 .tile {

@@ -24,8 +24,25 @@ let filenames = [
   "M210_B052_F037_ParcelC_nd_001.jpg"
 ];
 
-let altText = "A black and white portrait of a young girl in a formal looking business blazer looks into the camera...";
+let altText = [
+  "A black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 222black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 333black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 444black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 555black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 666black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 777black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 888black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 999black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 000black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 000black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A 000black and white portrait of a young girl in a formal looking business blazer looks into the camera...",
+  "A black and white portrait of a young girl in a formal looking business blazer looks into the camera..."
+  
 
+];
 
 function setup() {
   noCanvas();
@@ -35,7 +52,7 @@ function setup() {
     const tile = createDiv().addClass("tile");
 
     const img = createImg("img/" + filenames[i], altText).addClass("tile-img");
-    const label = createDiv(altText).addClass("alt-text");
+    const label = createDiv(altText[i]).addClass("alt-text");
 
     img.parent(tile);
     label.parent(tile);

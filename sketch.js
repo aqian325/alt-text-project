@@ -1,12 +1,17 @@
 let data;
 
 function preload() {
-  // Load your cleaned JSON file
-  data = loadJSON("alttexts_cleaned.json");
+  data = loadJSON("alttexts_cleaned_array.json?nocache=" + Math.random());
 }
+
 
 function setup() {
   noCanvas();
+  console.log("data from JSON:", data);
+  console.log("Array.isArray?", Array.isArray(data));
+
+  console.log("data length:", data.length);
+
   const container = createDiv().id("grid");
 
   for (let i = 0; i < data.length; i++) {
@@ -45,4 +50,4 @@ function showDetail(entry) {
   select("#sources").html(entry["SOURCES"]);
   select("#detail-panel").addClass("show");
 }
-console.log(data);
+// console.log(data);
