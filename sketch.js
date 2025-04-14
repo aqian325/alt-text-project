@@ -1,53 +1,45 @@
-let data;
+let table;
 
 function preload() {
-  data = loadJSON("alttexts_cleaned_array.json?nocache=" + Math.random());
+  table = loadTable("alttexts_cleaned.csv", "csv", "header");
 }
-
 
 function setup() {
   noCanvas();
-  console.log("data from JSON:", data);
-  console.log("Array.isArray?", Array.isArray(data));
+  const container = select("#grid");
 
-  console.log("data length:", data.length);
+  for (let i = 0; i < table.getRowCount(); i++) {
+    const row = table.getRow(i);
+    const filename = row.getString("filename");
+    const altText = row.getString("ALT-TEXT");
 
-  const container = createDiv().id("grid");
-
-  for (let i = 0; i < data.length; i++) {
-    const entry = data[i];
-
-        // 🟢 DEBUG HERE: Check what's coming from your JSON
-        console.log("entry:", entry);
-        console.log("filename:", entry.filename);
-        console.log("ALT-TEXT:", entry["ALT-TEXT"]);
-    
     const tile = createDiv().addClass("tile");
 
-    const img = createImg("img/" + entry.filename, entry["ALT-TEXT"]).addClass("tile-img");
-    const label = createDiv(entry["ALT-TEXT"]).addClass("alt-text");
+    const img = createImg("img/" + filename, altText).addClass("tile-img");
+    const label = createDiv(altText).addClass("alt-text");
 
     img.parent(tile);
     label.parent(tile);
     tile.parent(container);
 
+    // Pass row data into detail view on click
     tile.mousePressed(() => {
-      showDetail(entry);
+      showDetail(row);
     });
   }
 
+  // Close the detail panel
   select("#closeBtn").mousePressed(() => {
     select("#detail-panel").removeClass("show");
   });
 }
 
-function showDetail(entry) {
-  select("#detail-img").attribute("src", "img/" + entry.filename);
-  select("#alt").html(entry["ALT-TEXT"]);
-  select("#caption").html(entry["IMAGE CAPTION"]);
-  select("#description").html(entry["IMAGE DESCRIPTION"]);
-  select("#reflection").html(entry["REFLECTION"]);
-  select("#sources").html(entry["SOURCES"]);
+function showDetail(row) {
+  select("#detail-img").attribute("src", "img/" + row.getString("filename"));
+  select("#alt").html(row.getString("ALT-TEXT"));
+  select("#caption").html(row.getString("IMAGE-CAPTION"));
+  select("#description").html(row.getString("IMAGE-DESCRIPTION"));
+  select("#reflection").html(row.getString("REFLECTION"));
+  select("#sources").html(row.getString("SOURCES"));
   select("#detail-panel").addClass("show");
 }
-// console.log(data);
