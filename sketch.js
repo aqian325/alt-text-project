@@ -1,7 +1,7 @@
 let table;
 
 function preload() {
-  table = loadTable("alttexts_cleaned.csv", "csv", "header");
+  table = loadTable("alttextinfofinal.csv", "csv", "header");
 }
 
 function setup() {
@@ -36,6 +36,7 @@ function setup() {
 
 function showDetail(row) {
   select("#detail-img").attribute("src", "img/" + row.getString("filename"));
+  select("#student-name").html(row.getString("student-name"));
   select("#alt").html(row.getString("ALT-TEXT"));
   select("#caption").html(row.getString("IMAGE-CAPTION"));
   select("#description").html(row.getString("IMAGE-DESCRIPTION"));
