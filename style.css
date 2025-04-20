@@ -105,10 +105,10 @@ p {
 
 #closeBtn {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 28px;
-  border: none;
+  top: 30px;
+  right: 50px;
+  font-size: 56px;
+  border: 10px;
   background: none;
   cursor: pointer;
 }
