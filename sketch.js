@@ -17,9 +17,10 @@ function setup() {
 
     const img = createImg("img/" + filename, altText).addClass("tile-img");
     const label = createDiv(altText).addClass("alt-text");
+    label.html(`${altText}<div class="name-tag">${row.getString("student-name")}</div>`);
 
-    img.parent(tile);
     label.parent(tile);
+    img.parent(tile);
     tile.parent(container);
 
     // Pass row data into detail view on click
