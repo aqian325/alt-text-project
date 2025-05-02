@@ -1,7 +1,7 @@
 let table;
 
 function preload() {
-  table = loadTable("alttextinfofinal.csv", "csv", "header");
+  table = loadTable("alt-text-info-final0502.csv", "csv", "header");
 }
 
 function setup() {
@@ -36,12 +36,20 @@ function setup() {
 }
 
 function showDetail(row) {
-  select("#detail-img").attribute("src", "img/" + row.getString("filename"));
+  const filename = row.getString("filename");
+  const altText = row.getString("ALT-TEXT");
+
+  // Set image src and alt attributes directly
+  const detailImg = document.getElementById("detail-img");
+  detailImg.src = "img/" + filename;
+  detailImg.alt = altText;
+
+  // Populate the rest of the panel
   select("#student-name").html(row.getString("student-name"));
-  select("#alt").html(row.getString("ALT-TEXT"));
   select("#caption").html(row.getString("IMAGE-CAPTION"));
   select("#description").html(row.getString("IMAGE-DESCRIPTION"));
   select("#reflection").html(row.getString("REFLECTION"));
   select("#sources").html(row.getString("SOURCES"));
+
   select("#detail-panel").addClass("show");
 }

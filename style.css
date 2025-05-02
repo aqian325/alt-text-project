@@ -96,7 +96,7 @@ p {
   color: white;
   line-height: 20px;
   overflow-y: auto;
-  transition: opacity 2s ease;
+  transition: opacity 8s ease-in;
   z-index: 1;
 }
 
@@ -144,15 +144,27 @@ p {
   line-height: 1.5;
 }
 
+.detail-text .caption {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #ccc;
+  display:inline;
+}
+
+
 #closeBtn {
-  position: absolute;
-  top: 30px;
+  position: sticky;
+  top: 0;
+  margin-left: auto;
   right: 50px;
+  display: block;
+  width: fit-content;
   font-size: 56px;
-  border: 10px;
-  color:white;
+  border: none;
+  color: white;
   background: none;
   cursor: pointer;
+  z-index: 1000;
 }
 
 /* gray scoll bars */
