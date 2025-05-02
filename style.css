@@ -76,7 +76,7 @@ p {
   right: 12px;
   font-size: 14px;
   color: #ccc;
-  background: none;
+  background: #202020;
   padding: 2px 6px;
   border-radius: 4px;
   pointer-events: none;
@@ -92,9 +92,9 @@ p {
   background: #202020 !important;
   opacity: 0.95;
   padding: 16px;
-  font-size: 1.1rem;
+  font-size: 16px;
   color: white;
-  line-height: 1.7;
+  line-height: 20px;
   overflow-y: auto;
   transition: opacity 2s ease;
   z-index: 1;
