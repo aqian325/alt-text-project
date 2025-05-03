@@ -95,10 +95,26 @@ p {
   font-size: 16px;
   color: white;
   line-height: 20px;
-  overflow-y: auto;
+  
+  /* line-height: 1.4em; */
+  /* overflow-y: auto; */
   transition: opacity 8s ease-in;
   z-index: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
 }
+
+.clamped-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+}
+
 
 .tile:hover .alt-text {
   opacity: 0;

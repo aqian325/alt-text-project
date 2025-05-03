@@ -17,8 +17,14 @@ function setup() {
 
     const img = createImg("img/" + filename, altText).addClass("tile-img");
     const label = createDiv(altText).addClass("alt-text");
-    label.html(`${altText}<div class="name-tag">${row.getString("student-name")}</div>`);
-
+    // label.html(`${altText}<div class="name-tag">${row.getString("student-name")}</div>`);
+    label.html(`
+      <div class="clamped-text">
+        ${altText}
+      </div>
+      <div class="name-tag">${row.getString("student-name")}</div>
+    `);
+    
     label.parent(tile);
     img.parent(tile);
     tile.parent(container);
