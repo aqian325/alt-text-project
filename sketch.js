@@ -56,7 +56,17 @@ function showDetail(row) {
   select("#student-name").html(row.getString("student-name"));
   select("#caption").html(row.getString("IMAGE-CAPTION"));
   select("#description").html(row.getString("IMAGE-DESCRIPTION"));
-  select("#reflection").html(row.getString("REFLECTION"));
+
+  const reflection = row.getString("REFLECTION");
+  if (reflection && reflection.trim() !== "") {
+    select("#reflection").html(reflection);
+    select("#reflection-block").style("display", "block");
+  } else {
+    select("#reflection").html("");
+    select("#reflection-block").style("display", "none");
+  }
+  
+
   select("#sources").html(row.getString("SOURCES"));
 
   select("#detail-panel").addClass("show");
