@@ -74,6 +74,7 @@ function showDetail(row) {
 
 //separate logic for intro tile
 window.onload = () => {
+  // Handle intro tile panel opening/closing
   const introTile = document.getElementById("intro-tile");
   const introPanel = document.getElementById("intro-detail-panel");
   const closeIntroBtn = document.getElementById("closeIntroBtn");
@@ -88,5 +89,20 @@ window.onload = () => {
     });
   } else {
     console.warn("Intro tile or panel not found in DOM.");
+  }
+
+  // Handle intro animation screen exit
+  const enterButton = document.getElementById("enter-button");
+  const introScreen = document.getElementById("intro-screen");
+
+  if (enterButton && introScreen) {
+    enterButton.addEventListener("click", () => {
+      introScreen.style.opacity = "0";
+      setTimeout(() => {
+        introScreen.style.display = "none";
+      }, 600); // match any CSS transition timing
+    });
+  } else {
+    console.warn("Intro screen or enter button not found.");
   }
 };
