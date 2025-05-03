@@ -37,7 +37,7 @@ body {
   font-size: 32px; /* matches your h2 */
   color: #ff6044;
   font-family: Avenir, sans-serif;
-  font-weight: bold;
+  font-weight: 900;
   text-align: center;
   z-index: 10000;
   pointer-events: none;
@@ -61,7 +61,7 @@ body {
 
 h2 {
   font-size:32px;
-  color:white;
+  color:#ff6044;
 }
 
 h3 {
@@ -93,7 +93,6 @@ p {
   transition: transform 0.3s ease;
 }
 
-.intro-tile h2,
 .intro-tile h3,
 .intro-tile p {
   color: white;
