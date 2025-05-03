@@ -109,9 +109,10 @@ p {
 .clamped-text {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 7;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  -webkit-line-clamp: 7 !important;
+  line-clamp: 7 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
   line-height: 20px;
 }
 
