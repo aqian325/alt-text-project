@@ -28,7 +28,10 @@ p {
 
 .intro-tile {
   padding: 20px;
-  background-color: #202020;
+  background-color: #000000;
+  border-color: #ccc;
+  border-width: 3px;
+  border-style: dashed;
   color: white;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -170,13 +173,22 @@ p {
 .detail-text p {
   margin-bottom: 1em;
   line-height: 1.5;
+  
 }
 
 .detail-text .caption {
   font-size: 0.8rem;
+  max-width: 60ch; 
   font-style: italic;
   color: #ccc;
   display:inline;
+}
+
+.credit {
+  display: inline-block;
+  margin-left: auto;
+  padding-left: 40%; /* adjust this as needed */
+  text-align: left;
 }
 
 .close-btn {
@@ -220,14 +232,18 @@ p {
   position: fixed;
   bottom: -100%;
   left: 0;
+  right: auto;
   width: 100%;
   height: 80%;
   background: #202020;
-  box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: none !important;
+  outline: none;  
+  /* box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.2); */
   transition: bottom 0.4s ease;
   z-index: 999;
   overflow-y: scroll;
   padding: 30px;
+  padding-left:60px;
 }
 
 #intro-detail-panel.show {
