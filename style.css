@@ -92,7 +92,7 @@ p {
   background: #202020 !important;
   opacity: 0.95;
   padding: 16px;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   line-height: 20px;
   
@@ -109,7 +109,7 @@ p {
 .clamped-text {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 9;
+  -webkit-line-clamp: 7;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 20px;
