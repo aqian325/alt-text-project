@@ -12,23 +12,25 @@
 
 
     
-    <main id="grid">  
-      <h2>Alt Text in the Archives</h2>
-      <h3>An archival research project created by seminar students in <em>Media Art, Culture, and Social Justice</em> at Northeastern University. <br>Spring 2025</h3>
-      <p>Click to read about the project. 
-        <br><br><br>
-        <!-- <a href="https://forms.gle/LG24iZenfgwE5fi18" target="_blank" style="display: inline-block; padding: 20px 20px; margin: 10px; background-color: #4974a5; color: white; text-decoration: none; border-radius: 16px; font-weight: bold;">
-          Edit your alt text information here.
-        </a> -->
-        <br><br>
-      </p>
-     </main>
+    <main id="grid">
+      <div class="intro-tile" id="intro-tile">
+        <h2>Alt Text in the Archives</h2>
+        <h3>
+          An archival research project created by seminar students in
+          <em>Media Art, Culture, and Social Justice</em> at Northeastern University. <br>Spring 2025
+        </h3>
+        <p>
+          Click to read about the project.
+        </p>
+      </div>
+    </main>
+    
     <div id="overlay" class="hidden">
       <!-- <button id="closeBtn">×</button> -->
       <img id="overlayImg" />
       <p id="overlayText"></p>
       <div id="detail-panel" class="hidden">
-        <button id="closeBtn">×</button>
+        <button id="closeBtn" class="close-btn">×</button>
 
         <div id="detail-content">
           <img id="detail-img" />
@@ -42,9 +44,30 @@
             <p><strong>Sources</strong><br> <span id="sources"></span></p>
           </div>
         </div>
+        
     </div>
 
     </div>
-    
+    <div id="intro-detail-panel" class="detail-panel">
+      <button id="closeIntroBtn" class="close-btn">×</button>
+      <div id="intro-detail-content">
+        <h2>About This Project</h2>
+        <p>
+          In her book, <u>More Than Meets the Eye</u>, Georgina Kleege asserts that description 
+          is fundamentally interpretive and that objectivity is not even desirable. In this 
+          seminar for <i>Media Art, Culture, and Social Justice</i>, students were assigned a single image from two collections in Northeastern University’s archives—the Asian American Resource Workshop and the Chinese Progressive Association. We researched the image from within the archive to contextualize its history, and learned about the distinction between image captions, alt text, and image description. Through this process, we connected with the histories of people who have meaningfully shaped the city of Boston, representing their stories with accuracy and care while exploring our own voices in the more subjective work of writing descriptions. We asked ourselves a question Kleege poses in her writing, ‘is an image worth a thousand words? And what do we do with those thousand words?’
+
+<br><br><i>
+Archivist: Molly Brown<br>
+Archive Assistant: Blake McGee<br>
+Motion Graphics: Nadia Youssef<br>
+Web Design: April Qian<br><br>
+
+Creative Direction: Nelly Kate</i>
+
+
+        </p>
+      </div>
+    </div> 
   </body>
 </html>

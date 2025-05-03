@@ -34,12 +34,14 @@ function setup() {
       showDetail(row);
     });
   }
-
+  
   // Close the detail panel
   select("#closeBtn").mousePressed(() => {
     select("#detail-panel").removeClass("show");
   });
 }
+
+
 
 function showDetail(row) {
   const filename = row.getString("filename");
@@ -59,3 +61,22 @@ function showDetail(row) {
 
   select("#detail-panel").addClass("show");
 }
+
+//separate logic for intro tile
+window.onload = () => {
+  const introTile = document.getElementById("intro-tile");
+  const introPanel = document.getElementById("intro-detail-panel");
+  const closeIntroBtn = document.getElementById("closeIntroBtn");
+
+  if (introTile && introPanel && closeIntroBtn) {
+    introTile.addEventListener("click", () => {
+      introPanel.classList.add("show");
+    });
+
+    closeIntroBtn.addEventListener("click", () => {
+      introPanel.classList.remove("show");
+    });
+  } else {
+    console.warn("Intro tile or panel not found in DOM.");
+  }
+};
