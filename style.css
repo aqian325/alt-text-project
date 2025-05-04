@@ -79,11 +79,6 @@ p {
   margin-bottom: 10px; 
 }
 
-@media (max-width: 600px) {
-  p {
-    font-size: 1.1em;
-  }
-}
 
 .intro-tile {
   padding: 20px;
@@ -306,4 +301,28 @@ p {
 
 #intro-detail-panel.show {
   bottom: 0;
+}
+
+@media (max-width: 600px) {
+  p,
+  h3 {
+    font-size: 1.1em;
+  }
+
+  .caption,
+  .alt-text {
+    font-size: 0.9em;
+  }
+
+  #intro-video {
+    object-fit: contain;
+    background: black;
+  }
+
+  #enter-button {
+    bottom: 1rem;
+    right: 1rem;
+    transform: scale(0.9);
+    z-index: 10001;
+  }
 }
