@@ -34,7 +34,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 48px; /* matches your h2 */
+  font-size: 48px; 
   color: #ff6044;
   font-family: Avenir, sans-serif;
   font-weight: 900;
@@ -71,7 +71,7 @@ h3 {
 }
 
 p {
-  font-size:12px;
+  font-size:0.8em;
   color:white;
   max-width: 60ch; 
   word-wrap: break-word;
