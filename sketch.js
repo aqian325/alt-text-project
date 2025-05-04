@@ -69,6 +69,17 @@ function showDetail(row) {
 
   select("#sources").html(row.getString("SOURCES"));
 
+  const audioDesc = row.getString("AUDIO-DESCRIPTION");
+  const audioPlayer = document.getElementById("audio-description");
+
+  if (audioDesc && audioDesc.endsWith(".mp3")) {
+    audioPlayer.src = "audio/" + audioDesc;
+    audioPlayer.style.display = "block";
+  } else {
+   audioPlayer.src = "";
+    audioPlayer.style.display = "none";
+  }
+
   select("#detail-panel").addClass("show");
 }
 
