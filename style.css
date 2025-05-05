@@ -49,6 +49,7 @@ body {
   bottom: 2rem;
   right: 2rem;
   width: 200px;
+  max-width: 40vw; 
   height: auto;
   cursor: pointer;
   z-index: 10000;
@@ -322,7 +323,9 @@ p {
   #enter-button {
     bottom: 1rem;
     right: 1rem;
-    transform: scale(0.9);
+    width: 140px;        /* Shrink for smaller screens */
+    max-width: 45vw;     /* Ensures it doesn't overflow */
+    transform: none;     /* Avoid shrink-warping with scale */
     z-index: 10001;
   }
 }
