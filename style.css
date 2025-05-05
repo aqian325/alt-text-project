@@ -315,7 +315,9 @@ p {
     font-size: 0.9em;
   }
 
-  #intro-video {
+ #intro-video {
+    width: 100vw;
+    height: 60vh; 
     object-fit: contain;
     background: black;
   }
@@ -323,9 +325,9 @@ p {
   #enter-button {
     bottom: 1rem;
     right: 1rem;
-    width: 140px;        /* Shrink for smaller screens */
-    max-width: 45vw;     /* Ensures it doesn't overflow */
-    transform: none;     /* Avoid shrink-warping with scale */
+    width: 140px;        
+    max-width: 45vw;    
+    transform: none;     
     z-index: 10001;
   }
 }
