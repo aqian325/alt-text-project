@@ -1,4 +1,5 @@
 let table;
+let audioStopped = false;
 
 function preload() {
   table = loadTable("alt-text-info-final0502.csv", "csv", "header");
@@ -38,6 +39,7 @@ function setup() {
   // Close the detail panel
   select("#closeBtn").mousePressed(() => {
     select("#detail-panel").removeClass("show");
+    audioStopped = false;
   });
 }
 
@@ -72,11 +74,13 @@ function showDetail(row) {
   const audioDesc = row.getString("AUDIO-DESCRIPTION");
   const audioPlayer = document.getElementById("audio-description");
 
-  if (audioDesc && audioDesc.endsWith(".mp3")) {
+  if (!audioStopped && audioDesc && audioDesc.endsWith(".mp3")) {
     audioPlayer.src = "audio/" + audioDesc;
     audioPlayer.style.display = "block";
   } else {
-   audioPlayer.src = "";
+    audioPlayer.pause();
+    audioPlayer.currentTime = 0;
+    audioPlayer.src = "";
     audioPlayer.style.display = "none";
   }
 
@@ -115,5 +119,32 @@ window.onload = () => {
     });
   } else {
     console.warn("Intro screen or enter button not found.");
+  }
+
+  // Show stop audio button after enter button is clicked
+  const stopBtn = document.getElementById('stop-audio');
+
+  if (enterButton && introScreen) {
+    enterButton.addEventListener('click', () => {
+      introScreen.style.opacity = "0";
+      setTimeout(() => {
+        introScreen.style.display = "none";
+        if (stopBtn) stopBtn.style.display = "flex";
+      }, 600); // match any CSS transition timing
+    });
+  } else {
+    console.warn("Intro screen or enter button not found.");
+  }
+
+  // Stop all audio when the stop button is clicked
+  if (stopBtn) {
+    stopBtn.addEventListener('click', () => {
+      const audios = document.querySelectorAll('audio');
+      audios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+      audioStopped = true;
+    });
   }
 };
